@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 安装 | 胡鹤的hexo博客</title>
+  <title>flask-vue前后端分离的小项目(一) | 胡鹤的hexo博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="胡鹤的hexo博客">
-<meta property="og:url" content="http://yoursite.com/tags/%E5%AE%89%E8%A3%85/index.html">
+  <meta name="description" content="基于flask-vue 开发的一图书管理平台">
+<meta property="og:type" content="article">
+<meta property="og:title" content="flask-vue前后端分离的小项目(一)">
+<meta property="og:url" content="http://yoursite.com/2020/03/21/flask-vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E5%B0%8F%E9%A1%B9%E7%9B%AE/index.html">
 <meta property="og:site_name" content="胡鹤的hexo博客">
+<meta property="og:description" content="基于flask-vue 开发的一图书管理平台">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-03-21T11:57:51.000Z">
+<meta property="article:modified_time" content="2020-03-22T05:08:23.501Z">
 <meta property="article:author" content="胡鹤">
+<meta property="article:tag" content="开发">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="胡鹤的hexo博客" type="application/atom+xml">
@@ -57,7 +62,7 @@
 	        
 				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 	        
-				<li><a href="/tags/%E5%AE%89%E8%A3%85">安装</a></li>
+				<li><a href="/tags/%E5%BC%80%E5%8F%91">开发</a></li>
 	        
 				<li><a href="/tags/%E8%80%83%E7%A0%94">考研</a></li>
 	        
@@ -145,7 +150,7 @@
 		        
 					<li style="width: 16.666666666666668%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/%E5%AE%89%E8%A3%85">安装</a></li>
+					<li style="width: 16.666666666666668%"><a href="/tags/%E5%BC%80%E5%8F%91">开发</a></li>
 		        
 					<li style="width: 16.666666666666668%"><a href="/tags/%E8%80%83%E7%A0%94">考研</a></li>
 		        
@@ -166,98 +171,222 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-flask-vue前后端分离的小项目" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/29/ubuntu-navicat%E5%AE%89%E8%A3%85%E4%B8%8E%E7%A0%B4%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-02-29T10:35:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-29</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/29/ubuntu-navicat%E5%AE%89%E8%A3%85%E4%B8%8E%E7%A0%B4%E8%A7%A3/">ubuntu-navicat安装与破解</a>
+    <h1 class="article-title" itemprop="name">
+      flask-vue前后端分离的小项目(一)
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/03/21/flask-vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E5%B0%8F%E9%A1%B9%E7%9B%AE/" class="archive-article-date">
+  	<time datetime="2020-03-21T11:57:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="基于flask-vue-开发的一图书管理平台"><a href="#基于flask-vue-开发的一图书管理平台" class="headerlink" title="基于flask-vue 开发的一图书管理平台"></a>基于flask-vue 开发的一图书管理平台</h1><a id="more"></a>
+<p>后端技术是用flask开发， 提供接口， 网上的许多教程都只是完全由flask开发，并使用jinja2来传递数据。前后端分离只需要提供接口，传递参数即可。</p>
+<p>前端技术是Vue,可以用方便的可视化脚手架搭建项目，使用的是element-ui提供组件</p>
+<h2 id="一、搭建前端vue框架"><a href="#一、搭建前端vue框架" class="headerlink" title="一、搭建前端vue框架"></a>一、搭建前端vue框架</h2><pre><code>su root</code></pre><p>进入root模式</p>
+<pre><code>vue ui</code></pre><p>进入可视化面板，创建vue项目<br>1.手动配置：必须装Babel、Router、使用配置文件。建议不装Linter(vscode里面eslint配置不好)，不是用历史路由模式。<br>2.创建项目</p>
+<h2 id="二、搭建flask服务器"><a href="#二、搭建flask服务器" class="headerlink" title="二、搭建flask服务器"></a>二、搭建flask服务器</h2><p>1.在server文件夹下创建library.py文件<br>2.终端运行命令、激活环境、安装flask</p>
+<pre><code>$ python3 -m venv 
+
+$ . venv/bin/activate
+
+$ pip install flask</code></pre><p>3.完成其他配置文件,在文末的github地址中查看源码<br>安装其他必须的库,有提示没有装的继续装  </p>
+<pre><code>$ pip install pymysql
+
+$ pip install flask_sqlalchemy
+
+$ pip install flask_sqlalchemy
+
+$ pip install flask_cors</code></pre><p>4.先运行项目，查看flask是否创立成功</p>
+<h2 id="三、连接数据库"><a href="#三、连接数据库" class="headerlink" title="三、连接数据库"></a>三、连接数据库</h2><p>1.运行manage.py，初始化迁移的环境(注意在虚拟环境中)。<br>相关的配置查看源代码的配置文件</p>
+<pre><code>$ python manage.py db init
+
+$ python manage.py db migrate  
+
+$ python manage.py db upgrade</code></pre><p>2.查看数据库中是否创立了新的表，我用的是Navicat。不会破解的可以参考我发的文章。<br>3.数据库连接创立成功。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/wechatpay.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">开发</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/21/flask-vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E5%B0%8F%E9%A1%B9%E7%9B%AE/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/29/ubuntu-hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2020-02-29T06:26:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-29</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/03/22/flask-vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E5%B0%8F%E9%A1%B9%E7%9B%AE-%E4%BA%8C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          flask-vue前后端分离的小项目(二)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/02/29/ubuntu-navicat%E5%AE%89%E8%A3%85%E4%B8%8E%E7%A0%B4%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ubuntu-navicat安装与破解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/29/ubuntu-hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">ubuntu-hexo博客搭建</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">安装</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#基于flask-vue-开发的一图书管理平台"><span class="toc-number">1.</span> <span class="toc-text">基于flask-vue 开发的一图书管理平台</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、搭建前端vue框架"><span class="toc-number">1.1.</span> <span class="toc-text">一、搭建前端vue框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、搭建flask服务器"><span class="toc-number">1.2.</span> <span class="toc-text">二、搭建flask服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、连接数据库"><span class="toc-number">1.3.</span> <span class="toc-text">三、连接数据库</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -284,9 +413,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -354,7 +483,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安装</a>
+                <a href="javascript:void(0)" class="js-tag color3">开发</a>
               </li>
             
             <div class="clearfix"></div>
