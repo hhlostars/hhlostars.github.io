@@ -16,7 +16,7 @@
 <meta property="og:description" content="全部功能实现及总结">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-03-24T03:18:33.000Z">
-<meta property="article:modified_time" content="2020-03-24T13:16:13.915Z">
+<meta property="article:modified_time" content="2020-03-24T13:19:13.281Z">
 <meta property="article:author" content="胡鹤">
 <meta property="article:tag" content="开发">
 <meta name="twitter:card" content="summary">
@@ -198,7 +198,7 @@
 <p>更多的功能可以查看源码  </p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个练手项目是在学习flask、vue后再开始进行的。现在的许多flask教程都是没有前后端分离的一体化开发。<br><a href="https://www.bilibili.com/video/BV1n4411b7z7?from=search&seid=12119011897502802574" target="_blank" rel="noopener">vue的学习地址</a><br>参照了一个<a href="https://juejin.im/post/5c1f7289f265da612e28a214#heading-3" target="_blank" rel="noopener">前后端分离的小项目</a>这个项目没有与数据库连接，前端用的是Bootstrap<br>数据库获取的数据转化成json，参照了github上的项目  </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dobule_to_dict</span><span class="params">(v)</span>:</span></span><br><span class="line">    result = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> v.__mapper__.c.keys():</span><br><span class="line">        result[key] = getattr(v, key)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_json</span><span class="params">(all_vendors)</span>:</span></span><br><span class="line">    v = [ dobule_to_dict(ven) <span class="keyword">for</span> ven <span class="keyword">in</span> all_vendors ]</span><br><span class="line">    <span class="keyword">return</span> v</span><br></pre></td></tr></table></figure>
-<p>更多代码参照<a href="">github</a></p>
+<p>更多代码参照<a href="https://github.com/hhlostars/vue_flask" target="_blank" rel="noopener">github</a></p>
 
       
 
