@@ -61,6 +61,8 @@
 	        
 				<li><a href="/tags/%E8%80%83%E7%A0%94/">考研</a></li>
 	        
+				<li><a href="/tags/leetcode/">leetcode</a></li>
+	        
 				<li><a href="/tags/PAT/">PAT</a></li>
 	        
 				<li><a href="/archives/index.html">归档</a></li>
@@ -125,6 +127,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,17 +145,19 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 16.666666666666668%"><a href="/">主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/">主页</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/%E8%AF%AD%E8%A8%80/">语言</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E8%AF%AD%E8%A8%80/">语言</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/%E5%BC%80%E5%8F%91/">开发</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E5%BC%80%E5%8F%91/">开发</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/%E8%80%83%E7%A0%94/">考研</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/%E8%80%83%E7%A0%94/">考研</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/tags/PAT/">PAT</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/leetcode/">leetcode</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/archives/index.html">归档</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/PAT/">PAT</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/archives/index.html">归档</a></li>
 		        
 				</ul>
 			</nav>
@@ -188,19 +194,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="和为K的子数组"><a href="#和为K的子数组" class="headerlink" title="和为K的子数组"></a>和为K的子数组</h1><h2 id="官方解答"><a href="#官方解答" class="headerlink" title="官方解答"></a><a href="https://leetcode-cn.com/problems/subarray-sum-equals-k/solution/he-wei-kde-zi-shu-zu-by-leetcode-solution/" target="_blank" rel="noopener">官方解答</a></h2><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><h3 id="暴力循环"><a href="#暴力循环" class="headerlink" title="暴力循环"></a>暴力循环</h3><ol>
-<li>每一个数组内位置是固定的，不能对数组进行处理, 也不能使用滑动窗口，里面可能有负数。</li>
-<li>对一个位置i,将前面的[0,i-1]依次枚举判断是否等于k</li>
-<li>时间复杂度为O(n<sup>2</sup>)<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">subarraySum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 从当前的结点回溯， 相等后就++</span></span><br><span class="line">        <span class="keyword">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> start = <span class="number">0</span>; start &lt; n; start++) &#123;</span><br><span class="line">            <span class="keyword">int</span> sum = nums[start];</span><br><span class="line">            <span class="keyword">if</span>(sum == k) count++;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> last = start - <span class="number">1</span>; last &gt;= <span class="number">0</span>; last--) &#123;</span><br><span class="line">                sum += nums[last];</span><br><span class="line">                <span class="keyword">if</span>(sum == k) &#123;</span><br><span class="line">                    count++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><h3 id="前缀和-哈希表优化"><a href="#前缀和-哈希表优化" class="headerlink" title="前缀和 + 哈希表优化"></a>前缀和 + 哈希表优化</h3><ol>
-<li>用sum[i]表示[0, i]的每个位置的总和，若[i, j]之间的元素和为k，则有sum[i] - sum[j - 1] == k</li>
-<li>可通过判断sum[i] - k == sum[j - 1], 知道是否存在和为k</li>
-<li>将每一个sum用map保存， 在检查时直接查找，时间复杂度为O(n)<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">subarraySum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 官方方法二</span></span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; mp;</span><br><span class="line">        <span class="comment">// mp： key代表当前出现的数组和的数量， value代表该和的个数</span></span><br><span class="line">        mp[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++) &#123;</span><br><span class="line">            <span class="comment">// 计算每个位置的和(之前所有元素)</span></span><br><span class="line">            <span class="comment">// 将当前位置和与前面任意位置和的差 == k (map存储)</span></span><br><span class="line">            temp += nums[i];</span><br><span class="line">            <span class="comment">// 此时mp收录了i之前的所有和，先判断，再对mp更新</span></span><br><span class="line">            <span class="keyword">if</span>(mp.<span class="built_in">find</span>(temp - k) != mp.<span class="built_in">end</span>()) &#123;</span><br><span class="line">                count += mp[temp - k];</span><br><span class="line">            &#125;</span><br><span class="line">            mp[temp]++;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> count;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></li>
-</ol>
-
+        <h1 id="和为K的子数组"><a href="#和为K的子数组" class="headerlink" title="和为K的子数组"></a>和为K的子数组</h1>
+        
+          <a class="article-more-a" href="/2020/05/15/560-%E5%92%8C%E4%B8%BAK%E7%9A%84%E5%AD%90%E6%95%B0%E7%BB%84/#more">more >></a>
+        
       
 
       
@@ -208,6 +205,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -934,6 +942,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">leetcode</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">开发</a>
