@@ -6,19 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>flask-vue前后端分离的小项目-四 | 胡鹤的hexo博客</title>
+  <title>Archives: 2021/2 | 胡鹤的hexo博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="全部功能实现及总结">
-<meta property="og:type" content="article">
-<meta property="og:title" content="flask-vue前后端分离的小项目-四">
-<meta property="og:url" content="http://yoursite.com/2020/03/24/flask-vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E5%B0%8F%E9%A1%B9%E7%9B%AE-%E5%9B%9B/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="胡鹤的hexo博客">
+<meta property="og:url" content="http://yoursite.com/archives/2021/02/index.html">
 <meta property="og:site_name" content="胡鹤的hexo博客">
-<meta property="og:description" content="全部功能实现及总结">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-03-24T03:18:33.000Z">
-<meta property="article:modified_time" content="2021-02-19T14:01:19.283Z">
 <meta property="article:author" content="胡鹤">
-<meta property="article:tag" content="projects">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="胡鹤的hexo博客" type="application/atom+xml">
@@ -177,206 +172,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-flask-vue前后端分离的小项目-四" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      flask-vue前后端分离的小项目-四
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2021" class="archive-year">2021</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2021/02/22/CSS%E9%80%89%E6%8B%A9%E5%99%A8/" class="archive-article-date">
+  	<time datetime="2021-02-22T07:14:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-22</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2021/02/22/CSS%E9%80%89%E6%8B%A9%E5%99%A8/">CSS选择器</a>
     </h1>
   
 
-        
-        <a href="/2020/03/24/flask-vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E5%B0%8F%E9%A1%B9%E7%9B%AE-%E5%9B%9B/" class="archive-article-date">
-  	<time datetime="2020-03-24T03:18:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="全部功能实现及总结"><a href="#全部功能实现及总结" class="headerlink" title="全部功能实现及总结"></a>全部功能实现及总结</h1><a id="more"></a>  
-
-<p>实现书籍的增删改查功能</p>
-<h2 id="添加书籍等功能"><a href="#添加书籍等功能" class="headerlink" title="添加书籍等功能"></a>添加书籍等功能</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 添加书籍对话框 --&gt;</span><br><span class="line">    &lt;el-dialog title&#x3D;&quot;添加书籍&quot; :visible.sync&#x3D;&quot;addBookVisible&quot; width&#x3D;&quot;30%&quot; @close&#x3D;&quot;addDialogClosed&quot;&gt;</span><br><span class="line">      &lt;el-form ref&#x3D;&quot;bookRef&quot; :model&#x3D;&quot;addBookForm&quot; :rules&#x3D;&quot;addBookRules&quot; label-width&#x3D;&quot;80px&quot;&gt;</span><br><span class="line">        &lt;el-form-item label&#x3D;&quot;书籍名称&quot; prop&#x3D;&quot;title&quot;&gt;</span><br><span class="line">          &lt;el-input v-model&#x3D;&quot;addBookForm.title&quot;&gt;&lt;&#x2F;el-input&gt;</span><br><span class="line">        &lt;&#x2F;el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label&#x3D;&quot;作者名称&quot; prop&#x3D;&quot;author&quot;&gt;</span><br><span class="line">          &lt;el-input v-model&#x3D;&quot;addBookForm.author&quot;&gt;&lt;&#x2F;el-input&gt;</span><br><span class="line">        &lt;&#x2F;el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label&#x3D;&quot;是否读过&quot;&gt;</span><br><span class="line">          &lt;el-switch v-model&#x3D;&quot;addBookForm.read&quot;&gt;&lt;&#x2F;el-switch&gt;</span><br><span class="line">        &lt;&#x2F;el-form-item&gt;</span><br><span class="line">      &lt;&#x2F;el-form&gt;</span><br><span class="line"></span><br><span class="line">      &lt;span slot&#x3D;&quot;footer&quot; class&#x3D;&quot;dialog-footer&quot;&gt;</span><br><span class="line">        &lt;el-button @click&#x3D;&quot;addBookVisible &#x3D; false&quot;&gt;取 消&lt;&#x2F;el-button&gt;</span><br><span class="line">        &lt;el-button type&#x3D;&quot;primary&quot; @click&#x3D;&quot;addBook&quot;&gt;确 定&lt;&#x2F;el-button&gt;</span><br><span class="line">      &lt;&#x2F;span&gt;</span><br><span class="line">    &lt;&#x2F;el-dialog&gt;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F; 添加书籍规则</span><br><span class="line">      addBookRules: &#123;</span><br><span class="line">        title: [&#123; required: true, message: &quot;请输入书籍名称&quot;, trigger: &quot;blur&quot; &#125;],</span><br><span class="line">        author: [&#123; required: true, message: &quot;请输入作者名称&quot;, trigger: &quot;blur&quot; &#125;]</span><br><span class="line">      &#125;,</span><br><span class="line"></span><br><span class="line">    addBook() &#123;</span><br><span class="line">      this.$refs.bookRef.validate(async valid &#x3D;&gt; &#123;</span><br><span class="line">        if (!valid) return;</span><br><span class="line">        &#x2F;&#x2F;添加书籍请求</span><br><span class="line">        const res &#x3D; await this.$http.post(&quot;add&quot;, this.addBookForm);</span><br><span class="line">        console.log(res);</span><br><span class="line">        if (res.status !&#x3D;&#x3D; 200) &#123;</span><br><span class="line">          this.$message.error(&quot;添加书籍失败&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        this.$message.success(&quot;添加书籍成功&quot;);</span><br><span class="line">        this.addBookVisible &#x3D; false;</span><br><span class="line">        this.getBooks();</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<p>更多的功能可以查看源码  </p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这个练手项目是在学习flask、vue后再开始进行的。现在的许多flask教程都是没有前后端分离的一体化开发。<br><a href="https://www.bilibili.com/video/BV1n4411b7z7?from=search&seid=12119011897502802574" target="_blank" rel="noopener">vue的学习地址</a><br>参照了一个<a href="https://juejin.im/post/5c1f7289f265da612e28a214#heading-3" target="_blank" rel="noopener">前后端分离的小项目</a>这个项目没有与数据库连接，前端用的是Bootstrap<br>数据库获取的数据转化成json，参照了github上的项目  </p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">dobule_to_dict</span><span class="params">(v)</span>:</span></span><br><span class="line">    result = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> v.__mapper__.c.keys():</span><br><span class="line">        result[key] = getattr(v, key)</span><br><span class="line">    <span class="keyword">return</span> result</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">to_json</span><span class="params">(all_vendors)</span>:</span></span><br><span class="line">    v = [ dobule_to_dict(ven) <span class="keyword">for</span> ven <span class="keyword">in</span> all_vendors ]</span><br><span class="line">    <span class="keyword">return</span> v</span><br></pre></td></tr></table></figure>
-<p>更多代码参照<a href="https://github.com/hhlostars/vue_flask" target="_blank" rel="noopener">github</a></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/assets/wechatpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">projects</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">CSS</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/24/flask-vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E5%B0%8F%E9%A1%B9%E7%9B%AE-%E5%9B%9B/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2020/05/01/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E5%A4%A7%E5%B0%8F/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          函数指针大小
-        
-      </div>
-    </a>
   
   
-    <a href="/2020/03/22/flask-vue%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E7%9A%84%E5%B0%8F%E9%A1%B9%E7%9B%AE-%E4%B8%89/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">flask-vue前后端分离的小项目-三</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#全部功能实现及总结"><span class="toc-number">1.</span> <span class="toc-text">全部功能实现及总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#添加书籍等功能"><span class="toc-number">1.1.</span> <span class="toc-text">添加书籍等功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总结"><span class="toc-number">1.2.</span> <span class="toc-text">总结</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -403,8 +252,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
